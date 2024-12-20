@@ -51,7 +51,7 @@ def predict_crop():
 def predict_water():
     data = request.json
     features = pd.DataFrame(data)
-    if not features:
+    if features.empty:
         return jsonify({'error': 'Features are required'}), 400
 
     try:
