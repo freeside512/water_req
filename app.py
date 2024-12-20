@@ -50,8 +50,7 @@ def predict_crop():
 @app.route('/predict_water', methods=['POST'])
 def predict_water():
     data = request.json
-    features = data.get('features')
-    features = pd.DataFrame(features)
+    features = pd.DataFrame(data)
     if not features:
         return jsonify({'error': 'Features are required'}), 400
 
