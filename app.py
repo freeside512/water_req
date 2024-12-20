@@ -2,7 +2,7 @@ import os
 from flask import Flask, request, jsonify
 import joblib
 from weather import Weather
-
+import pandas as pd
 app = Flask(__name__)
 
 
@@ -51,7 +51,7 @@ def predict_crop():
 def predict_water():
     data = request.json
     features = data.get('features')
-
+    features = pd.DataFrame(features)
     if not features:
         return jsonify({'error': 'Features are required'}), 400
 
