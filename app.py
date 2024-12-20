@@ -55,7 +55,7 @@ def predict_water():
         return jsonify({'error': 'Features are required'}), 400
 
     try:
-        prediction = water_model.predict([features])
+        prediction = water_model.predict(features)
         return jsonify({'water_level_prediction': prediction[0]})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
