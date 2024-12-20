@@ -18,7 +18,11 @@ def get_weather():
     
     return jsonify({
         'temperature': weather.temp,
-        'condition': weather.condition
+        'condition': weather.condition,
+        'icon':weather.icon,
+        'send_condition':weather.send_cond,
+        'send_temp':weather.send_temp,
+        'send_region':weather.send_region
     })
 
 if __name__ == '__main__':
