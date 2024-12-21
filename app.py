@@ -38,13 +38,13 @@ def get_weather():
 @app.route('/predict_crop', methods=['POST'])
 def predict_crop():
     data = request.json
-    features = data.get('features')
+    features = pd.DataFrame(data)
 
-    if not features:
+    if features.empty:
         return jsonify({'error': 'Features are required'}), 400
 
     try:
-        prediction = crop_model.predict([features])
+        prediction = crop_model.predict(features)
         return jsonify({'crop_prediction': prediction[0]})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
