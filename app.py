@@ -28,7 +28,10 @@ def get_weather():
         'icon': weather.icon,
         'send_condition': weather.send_cond,
         'send_temp': weather.send_temp,
-        'send_region': weather.send_region
+        'send_region': weather.send_region,
+        'actual_temp': weather.actual_temp,
+        'humidity_r': weather.humidity_r,
+        'yearly_rain': weather.yearly_rain,
     })
 
 
