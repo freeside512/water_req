@@ -39,6 +39,9 @@ class Weather:
             self.temp = jsonData['days'][0]['temp']
             self.condition = jsonData['days'][0]['conditions']
             self.icon = jsonData['days'][0]['icon']
+            self.actual_temp = jsonData['days'][0]['temp']
+            self.humidity_r = jsonData['days'][0]['humidity']
+            
             for i in weather_categories:
                 if self.icon in weather_categories[i]:
                     self.send_cond = i
@@ -61,7 +64,7 @@ class Weather:
                 self.send_region= "SEMI HUMID"
             else:
                 self.send_region= "HUMID"
-
+            self.yearly_rain = total_rain *12
 
         except urllib.error.HTTPError  as e:
             ErrorInfo= e.read().decode() 
